@@ -53,13 +53,13 @@ const Slider = ({ slides }) => {
         <span className="visually-hidden">Next</span>
       </button>
 
-      {/* Indicators */}
-      <div className="carousel-indicators">
+      {/* Custom dots navigation */}
+      <div className="slide-dots">
         {slides.map((_, index) => (
           <button
             key={index}
             type="button"
-            className={index === currentSlide ? 'active' : ''}
+            className={`slide-dot ${index === currentSlide ? 'active' : ''}`}
             onClick={() => goToSlide(index)}
             aria-label={`Slide ${index + 1}`}
           ></button>
