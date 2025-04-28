@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Button } from 'react-bootstrap';
+import './Slider.css';
 
 const Slider = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
