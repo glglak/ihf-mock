@@ -10,7 +10,7 @@ const Header = () => {
         <Container className="d-flex justify-content-between align-items-center">
           <div className="logo">
             <Link to="/">
-              <img src="https://www.ihf.info/sites/default/files/logo-espace-bleu-en.png" alt="IHF Logo" />
+              <img src="https://www.ihf.info/themes/ihf_theme/assets/img/logo.png?473" alt="IHF Logo" />
             </Link>
           </div>
           <div className="social-icons">
