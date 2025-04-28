@@ -9,25 +9,25 @@ const NewsSection = () => {
     {
       id: 1,
       date: 'April 28, 2025',
-      title: 'Brazil triumph at home and celebrate 20th South and Central American Women's Championship title',
+      title: "Brazil triumph at home and celebrate 20th South and Central American Women's Championship title",
       image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2022-11/Brazil%20trophy%20article.png'
     },
     {
       id: 2,
       date: 'April 27, 2025',
-      title: 'Colombia earn Pan American Games qualification by reaching the final of the South and Central American Championship',
+      title: "Colombia earn Pan American Games qualification by reaching the final of the South and Central American Championship",
       image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2022-11/Colombia%20celebrate.jpg'
     },
     {
       id: 3,
       date: 'April 25, 2025',
-      title: 'Thailand men's team start preparation ahead of Asian Championship in January',
+      title: "Thailand men's team start preparation ahead of Asian Championship in January",
       image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2022-11/Thailand%20MNT%20train%20ahead%20of%20Asian%20Championship.jpg'
     },
     {
       id: 4,
       date: 'April 23, 2025',
-      title: 'Switzerland's Nikola Portner honoured for saving life of German handball star',
+      title: "Switzerland's Nikola Portner honoured for saving life of German handball star",
       image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2023-02/Nikola%20Portner%20honored%20for%20saving%20life.jpg'
     }
   ];
