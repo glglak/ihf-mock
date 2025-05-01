@@ -1,36 +1,58 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
+import ApiService from '../services/api.service';
 
 const NewsSection = () => {
-  // Dummy news data
-  const newsItems = [
-    {
-      id: 1,
-      date: 'April 28, 2025',
-      title: "Brazil triumph at home and celebrate 20th South and Central American Women's Championship title",
-      image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2022-11/Brazil%20trophy%20article.png'
-    },
-    {
-      id: 2,
-      date: 'April 27, 2025',
-      title: "Colombia earn Pan American Games qualification by reaching the final of the South and Central American Championship",
-      image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2022-11/Colombia%20celebrate.jpg'
-    },
-    {
-      id: 3,
-      date: 'April 25, 2025',
-      title: "Thailand men's team start preparation ahead of Asian Championship in January",
-      image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2022-11/Thailand%20MNT%20train%20ahead%20of%20Asian%20Championship.jpg'
-    },
-    {
-      id: 4,
-      date: 'April 23, 2025',
-      title: "Switzerland's Nikola Portner honoured for saving life of German handball star",
-      image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2023-02/Nikola%20Portner%20honored%20for%20saving%20life.jpg'
-    }
-  ];
+  const [newsItems, setNewsItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        setIsLoading(true);
+        const data = await ApiService.getNews();
+        setNewsItems(data);
+        setIsLoading(false);
+      } catch (err) {
+        console.error('Error fetching news:', err);
+        setError('Failed to load news. Please try again later.');
+        setIsLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section className="latest-news">
+        <Container>
+          <h2 className="section-title">LATEST NEWS</h2>
+          <div className="text-center py-4">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="latest-news">
+        <Container>
+          <h2 className="section-title">LATEST NEWS</h2>
+          <div className="alert alert-danger" role="alert">
+            {error}
+          </div>
+        </Container>
+      </section>
+    );
+  }
 
   return (
     <section className="latest-news">
