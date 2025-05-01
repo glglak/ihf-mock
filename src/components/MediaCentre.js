@@ -1,39 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaArrowRight, FaEye } from 'react-icons/fa';
 import './MediaCentre.css';
+import ApiService from '../services/api.service';
 
 const MediaCentre = () => {
-  const mediaItems = [
-    {
-      id: 1,
-      image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2025-03/medal_ceremony_5thmens_emerging.jpg',
-      date: '16 Mar. 2025',
-      title: 'Medal Ceremony | 5th IHF Men\'s Emerging Nations Championship | © IHF',
-      type: 'gallery'
-    },
-    {
-      id: 2,
-      image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2025-03/bulgaria_gbr_5mens_emerging.jpg',
-      date: '16 Mar. 2025',
-      title: 'Bulgaria vs Great Britain | 5th IHF Men\'s Emerging Nations Championship | © IHF',
-      type: 'gallery'
-    },
-    {
-      id: 3,
-      image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2025-03/nigeria_usa_5mens_emerging.jpg',
-      date: '16 Mar. 2025',
-      title: 'Nigeria vs USA | 5th IHF Men\'s Emerging Nations Championship | © IHF',
-      type: 'gallery'
-    },
-    {
-      id: 4,
-      image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2025-03/paraguay_cyprus_5mens_emerging.jpg',
-      date: '16 Mar. 2025',
-      title: 'Paraguay vs Cyprus | 5th IHF Men\'s Emerging Nations Championship | © IHF',
-      type: 'gallery'
-    }
-  ];
+  const [mediaItems, setMediaItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchMedia = async () => {
+      try {
+        setIsLoading(true);
+        const data = await ApiService.getMedia();
+        setMediaItems(data);
+        setIsLoading(false);
+      } catch (err) {
+        console.error('Error fetching media:', err);
+        setError('Failed to load media. Please try again later.');
+        setIsLoading(false);
+      }
+    };
+
+    fetchMedia();
+  }, []);
 
   const mediaItemWidth = {
     0: 50, // First item takes 50% width (large)
@@ -41,6 +32,38 @@ const MediaCentre = () => {
     2: 25, // Third item takes 25% width
     3: 50  // Fourth item takes 50% width (if there are 4 items)
   };
+
+  if (isLoading) {
+    return (
+      <section className="media-centre-section">
+        <Container>
+          <div className="section-header">
+            <h2 className="section-title">MEDIA CENTRE</h2>
+          </div>
+          <div className="text-center py-4">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="media-centre-section">
+        <Container>
+          <div className="section-header">
+            <h2 className="section-title">MEDIA CENTRE</h2>
+          </div>
+          <div className="alert alert-danger" role="alert">
+            {error}
+          </div>
+        </Container>
+      </section>
+    );
+  }
 
   return (
     <section className="media-centre-section">
