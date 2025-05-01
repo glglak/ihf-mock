@@ -16,7 +16,7 @@ const sliderData = [
     id: 2,
     title: "WOMEN'S WORLD CHAMPIONSHIP 2023 DRAW RESULTS",
     description: "The IHF Women's World Championship 2023 draw has taken place in Copenhagen, Denmark. 32 teams will compete from November 29 to December 17 across Denmark, Norway, and Sweden.",
-    image: "https://www.ihf.info/sites/default/files/styles/news_details/public/2025-04/Simon1440.jpg?itok=uQc4UjCB"
+    image: "https://www.ihf.info/sites/default/files/styles/competition_slider/public/2025-04/Kuzma1920.png?itok=NMaPWUCt"
   },
   {
     id: 3,
