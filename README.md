@@ -4,7 +4,7 @@ This is a complete mockup of the International Handball Federation (IHF) website
 
 ## Live Demo
 
-The site is hosted on GitHub Pages (link will be added soon).
+Visit the live website at: [https://glglak.github.io/ihf-mock](https://glglak.github.io/ihf-mock)
 
 ## Features
 
@@ -68,6 +68,9 @@ ihf-mock/
 │   ├── App.js
 │   ├── index.css
 │   └── index.js
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
 ├── .gitignore
 ├── package.json
 └── README.md
@@ -92,6 +95,16 @@ npm start
 ```
 
 4. Open your browser and navigate to `http://localhost:3000`
+
+## Deployment
+
+The website is automatically deployed to GitHub Pages whenever changes are pushed to the main branch. The deployment is handled by GitHub Actions.
+
+To manually deploy the website:
+
+```bash
+npm run deploy
+```
 
 ## API Service
 
