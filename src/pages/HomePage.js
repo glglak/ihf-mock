@@ -1,6 +1,14 @@
 import React from 'react';
 import Slider from '../components/Slider';
 import NewsSection from '../components/NewsSection';
+import UpcomingEvents from '../components/UpcomingEvents';
+import InfoBanner from '../components/InfoBanner';
+import MediaCentre from '../components/MediaCentre';
+import Competitions from '../components/Competitions';
+import WorldMapSection from '../components/WorldMapSection';
+import Partners from '../components/Partners';
+import Newsletter from '../components/Newsletter';
+import CookieConsent from '../components/CookieConsent';
 
 const HomePage = () => {
   // Dummy slider data
@@ -25,10 +33,24 @@ const HomePage = () => {
     }
   ];
 
+  // Anti-doping banner image URL
+  const antiDopingBannerUrl = "https://www.ihf.info/sites/default/files/styles/large/public/2022-12/athlete365_banner.jpg";
+
   return (
     <div>
       <Slider slides={sliderData} />
+      <UpcomingEvents />
+      <InfoBanner 
+        imageUrl={antiDopingBannerUrl} 
+        link="/athlete-365-anti-doping"
+      />
+      <MediaCentre />
+      <Competitions />
+      <WorldMapSection />
+      <Partners />
       <NewsSection />
+      <Newsletter />
+      <CookieConsent />
     </div>
   );
 };
