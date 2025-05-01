@@ -39,12 +39,12 @@ const Newsletter = () => {
         <Row className="align-items-center">
           <Col lg={6} md={6} className="d-flex align-items-center footer-logo">
             <img
-              src="https://www.ihf.info/themes/ihf_theme/assets/img/logo-blue.svg"
+              src="https://www.ihf.info/themes/ihf_theme/assets/img/small-logo.png?792"
               alt="IHF Logo"
               className="ihf-logo"
             />
             <img
-              src="https://www.ihf.info/themes/ihf_theme/assets/img/ihf-75.svg"
+              src="https://www.ihf.info/themes/ihf_theme/assets/img/small-logo.png?792"
               alt="IHF 75 Years"
               className="ihf-anniversary-logo"
             />
