@@ -44,7 +44,7 @@ const Newsletter = () => {
               className="ihf-logo"
             />
             <img
-              src="https://www.ihf.info/themes/ihf_theme/assets/img/small-logo.png?792"
+              src="https://www.ihf.info/themes/ihf_theme/assets/img/footer-logo.png"
               alt="IHF 75 Years"
               className="ihf-anniversary-logo"
             />
