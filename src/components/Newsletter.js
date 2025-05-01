@@ -1,22 +1,36 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './Newsletter.css';
+import ApiService from '../services/api.service';
 
 const Newsletter = () => {
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState(null);
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically make an API call to subscribe
-    console.log('Subscribing email:', email);
-    setIsSubmitted(true);
-    setEmail('');
-    
-    // Reset the success message after a delay
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 3000);
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      // Call the API service
+      await ApiService.subscribeNewsletter(email);
+      
+      setIsSubmitted(true);
+      setEmail('');
+      
+      // Reset the success message after a delay
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (err) {
+      console.error('Error subscribing to newsletter:', err);
+      setError('Failed to subscribe. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (
@@ -49,11 +63,23 @@ const Newsletter = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     className="newsletter-input"
+                    disabled={isSubmitting}
                   />
-                  <Button type="submit" className="newsletter-button">Send</Button>
+                  <Button 
+                    type="submit" 
+                    className="newsletter-button"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send'}
+                  </Button>
                 </div>
+                
                 {isSubmitted && (
                   <div className="success-message">Thank you for subscribing!</div>
+                )}
+                
+                {error && (
+                  <div className="error-message">{error}</div>
                 )}
               </Form>
             </div>
