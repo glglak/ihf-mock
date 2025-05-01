@@ -1,27 +1,77 @@
 # IHF Mock Website
 
-This is a mockup of the International Handball Federation (IHF) website using React and Bootstrap. The design closely follows the official IHF website layout and styling.
+This is a complete mockup of the International Handball Federation (IHF) website using React and Bootstrap. The design closely follows the official IHF website layout and styling.
+
+## Live Demo
+
+The site is hosted on GitHub Pages (link will be added soon).
 
 ## Features
 
 - Responsive design that works on desktop and mobile devices
 - Interactive slider/carousel for featured news articles
 - Navigation menu with dropdowns
-- Latest news section
-- Based on the official IHF website layout
-- Built with React and Bootstrap
-
-## Live Demo
-
-You can check out the live demo on GitHub Pages (coming soon).
+- Latest news section with card layout
+- Upcoming events section with calendar
+- Media center with image galleries
+- Competitions carousel
+- World map and president message section
+- Partners showcase
+- Newsletter subscription form with validation
+- Cookie consent banner
+- Mock API services for data management
 
 ## Technology Stack
 
-- React.js - A JavaScript library for building user interfaces
-- React Router - For navigation between pages
-- React Bootstrap - UI components library
-- React Icons - For social media and UI icons
-- CSS3 - For styling and animations
+- **React.js** - A JavaScript library for building user interfaces
+- **React Router** - For navigation between pages
+- **React Bootstrap** - UI components library
+- **React Icons** - For social media and UI icons
+- **CSS3** - For styling and animations
+
+## Project Structure
+
+```
+ihf-mock/
+├── public/
+│   ├── index.html
+│   └── manifest.json
+├── src/
+│   ├── components/
+│   │   ├── CookieConsent.js
+│   │   ├── CookieConsent.css
+│   │   ├── Competitions.js
+│   │   ├── Competitions.css
+│   │   ├── Footer.js
+│   │   ├── Header.js
+│   │   ├── Hero.js
+│   │   ├── InfoBanner.js
+│   │   ├── InfoBanner.css
+│   │   ├── MediaCentre.js
+│   │   ├── MediaCentre.css
+│   │   ├── Newsletter.js
+│   │   ├── Newsletter.css
+│   │   ├── NewsSection.js
+│   │   ├── Partners.js
+│   │   ├── Partners.css
+│   │   ├── Slider.js
+│   │   ├── Slider.css
+│   │   ├── UpcomingEvents.js
+│   │   ├── UpcomingEvents.css
+│   │   ├── WorldMapSection.js
+│   │   └── WorldMapSection.css
+│   ├── pages/
+│   │   └── HomePage.js
+│   ├── services/
+│   │   └── api.service.js
+│   ├── App.css
+│   ├── App.js
+│   ├── index.css
+│   └── index.js
+├── .gitignore
+├── package.json
+└── README.md
+```
 
 ## Installation and Setup
 
@@ -43,38 +93,27 @@ npm start
 
 4. Open your browser and navigate to `http://localhost:3000`
 
-## Project Structure
+## API Service
 
-```
-ihf-mock/
-├── public/
-│   ├── index.html
-│   └── manifest.json
-├── src/
-│   ├── components/
-│   │   ├── Footer.js
-│   │   ├── Header.js
-│   │   ├── Hero.js
-│   │   ├── NewsSection.js
-│   │   ├── Slider.js
-│   │   └── Slider.css
-│   ├── pages/
-│   │   └── HomePage.js
-│   ├── App.css
-│   ├── App.js
-│   ├── index.css
-│   └── index.js
-├── .gitignore
-├── package.json
-└── README.md
-```
+The project includes a mock API service that simulates backend functionality. In a real application, these services would interact with a real API. The following mock endpoints are available:
+
+- `getSliderData()` - Fetches slider/hero section data
+- `getEvents()` - Fetches upcoming events data
+- `getNews()` - Fetches latest news items
+- `getNewsById(id)` - Fetches a specific news item by ID
+- `getMedia()` - Fetches media gallery items
+- `getCompetitions()` - Fetches competition items for the carousel
+- `getPartners()` - Fetches partner logos and information
+- `subscribeNewsletter(email)` - Simulates newsletter subscription
 
 ## Future Enhancements
 
 - Add more pages (About, Competitions, Media Center, etc.)
 - Implement responsive navigation for mobile devices
 - Add authentication functionality (login/register)
-- Integrate with a backend API for dynamic content
+- Integrate with a real backend API
+- Add language selector for multilingual support
+- Implement advanced search functionality
 
 ## Contributing
 
