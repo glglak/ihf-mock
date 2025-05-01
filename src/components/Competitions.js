@@ -2,52 +2,40 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Container } from 'react-bootstrap';
 import { FaArrowRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Competitions.css';
+import ApiService from '../services/api.service';
 
 const Competitions = () => {
+  const [competitions, setCompetitions] = useState([]);
   const [activeSlide, setActiveSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const sliderRef = useRef(null);
 
-  const competitions = [
-    {
-      id: 1,
-      title: 'IHF Trophy (U17) Youth Women 2025',
-      image: 'https://www.ihf.info/sites/default/files/styles/medium/public/competition-logos/u17_women_youth.png',
-      link: '/competitions/ihf-trophy-u17-women-2025'
-    },
-    {
-      id: 2,
-      title: 'IHF Trophy (U19) Junior Women 2025',
-      image: 'https://www.ihf.info/sites/default/files/styles/medium/public/competition-logos/u19_women_junior.png',
-      link: '/competitions/ihf-trophy-u19-women-2025'
-    },
-    {
-      id: 3,
-      title: '11th IHF Men\'s Youth (U19) World Championship 2025 Egypt',
-      image: 'https://www.ihf.info/sites/default/files/styles/medium/public/competition-logos/u19_men_egypt_2025.png',
-      link: '/competitions/mens-youth-world-championship-2025'
-    },
-    {
-      id: 4,
-      title: '25th IHF Men\'s Junior World Championship 2025 Poland',
-      image: 'https://www.ihf.info/sites/default/files/styles/medium/public/competition-logos/u21_men_world_championship.png',
-      link: '/competitions/mens-junior-world-championship-2025'
-    },
-    {
-      id: 5,
-      title: 'Women\'s World Championship 2025',
-      image: 'https://www.ihf.info/sites/default/files/styles/medium/public/competition-logos/wwch_2025.png',
-      link: '/competitions/womens-world-championship-2025'
-    }
-  ];
+  useEffect(() => {
+    const fetchCompetitions = async () => {
+      try {
+        setIsLoading(true);
+        const data = await ApiService.getCompetitions();
+        setCompetitions(data);
+        setIsLoading(false);
+      } catch (err) {
+        console.error('Error fetching competitions:', err);
+        setError('Failed to load competitions. Please try again later.');
+        setIsLoading(false);
+      }
+    };
+
+    fetchCompetitions();
+  }, []);
 
   const handlePrev = () => {
-    setActiveSlide((prev) => (prev === 0 ? competitions.length - 4 : prev - 1));
+    setActiveSlide((prev) => (prev === 0 ? Math.max(0, competitions.length - 4) : prev - 1));
   };
 
   const handleNext = () => {
-    setActiveSlide((prev) => (prev === competitions.length - 4 ? 0 : prev + 1));
+    setActiveSlide((prev) => (prev === Math.max(0, competitions.length - 4) ? 0 : prev + 1));
   };
 
   const handleIndicatorClick = (index) => {
@@ -76,12 +64,46 @@ const Competitions = () => {
 
   // Auto-scroll every 5 seconds
   useEffect(() => {
+    if (competitions.length === 0) return;
+    
     const interval = setInterval(() => {
       handleNext();
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [activeSlide]);
+  }, [activeSlide, competitions.length]);
+
+  if (isLoading) {
+    return (
+      <section className="competitions-section">
+        <Container>
+          <div className="section-header">
+            <h2 className="section-title">IHF COMPETITIONS</h2>
+          </div>
+          <div className="text-center py-4">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="competitions-section">
+        <Container>
+          <div className="section-header">
+            <h2 className="section-title">IHF COMPETITIONS</h2>
+          </div>
+          <div className="alert alert-danger" role="alert">
+            {error}
+          </div>
+        </Container>
+      </section>
+    );
+  }
 
   return (
     <section className="competitions-section">
@@ -132,7 +154,7 @@ const Competitions = () => {
         </div>
 
         <div className="slider-indicators">
-          {competitions.slice(0, competitions.length - 3).map((_, index) => (
+          {competitions.slice(0, Math.max(1, competitions.length - 3)).map((_, index) => (
             <button
               key={index}
               className={`indicator ${activeSlide === index ? 'active' : ''}`}
