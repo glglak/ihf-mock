@@ -13,22 +13,25 @@ import ApiService from '../services/api.service';
 
 const HomePage = () => {
   const [sliderData, setSliderData] = useState([]);
+  const [bannerUrls, setBannerUrls] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Anti-doping banner image URL
-  const antiDopingBannerUrl = "https://www.ihf.info/sites/default/files/styles/large/public/2022-12/athlete365_banner.jpg";
-
   useEffect(() => {
-    // Load slider data
+    // Load slider data and banner URLs
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const data = await ApiService.getSliderData();
-        setSliderData(data);
+        const [sliderResponse, bannerResponse] = await Promise.all([
+          ApiService.getSliderData(),
+          ApiService.getBannerUrls()
+        ]);
+        
+        setSliderData(sliderResponse);
+        setBannerUrls(bannerResponse);
         setIsLoading(false);
       } catch (err) {
-        console.error('Error fetching slider data:', err);
+        console.error('Error fetching data:', err);
         setError('Failed to load content. Please try again later.');
         setIsLoading(false);
       }
@@ -62,16 +65,16 @@ const HomePage = () => {
   return (
     <div>
       {sliderData.length > 0 && <Slider slides={sliderData} />}
+      <NewsSection />
       <UpcomingEvents />
       <InfoBanner 
-        imageUrl={antiDopingBannerUrl} 
+        imageUrl={bannerUrls.antiDoping || "https://www.ihf.info/sites/default/files/styles/news_details/public/2021-07/Competition%20manipulation_1440x600.jpg?itok=qvCV97Bp"} 
         link="/athlete-365-anti-doping"
       />
       <MediaCentre />
       <Competitions />
       <WorldMapSection />
       <Partners />
-      <NewsSection />
       <Newsletter />
       <CookieConsent />
     </div>
