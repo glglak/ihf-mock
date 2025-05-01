@@ -60,28 +60,28 @@ const newsData = [
     id: 1,
     date: 'April 28, 2025',
     title: "Brazil triumph at home and celebrate 20th South and Central American Women's Championship title",
-    image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2022-11/Brazil%20trophy%20article.png',
+    image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/Lieder330.jpg?itok=pEC-LJfE',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'
   },
   {
     id: 2,
     date: 'April 27, 2025',
     title: "Colombia earn Pan American Games qualification by reaching the final of the South and Central American Championship",
-    image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2022-11/Colombia%20celebrate.jpg',
+    image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/FARSTS330.png?itok=uyOF0P3D',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'
   },
   {
     id: 3,
     date: 'April 25, 2025',
     title: "Thailand men's team start preparation ahead of Asian Championship in January",
-    image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2022-11/Thailand%20MNT%20train%20ahead%20of%20Asian%20Championship.jpg',
+    image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/Romero330.png?itok=xz8z1EpM',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'
   },
   {
     id: 4,
     date: 'April 23, 2025',
     title: "Switzerland's Nikola Portner honoured for saving life of German handball star",
-    image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2023-02/Nikola%20Portner%20honored%20for%20saving%20life.jpg',
+    image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/Romero330.png?itok=xz8z1EpM',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'
   }
 ];
@@ -90,28 +90,28 @@ const newsData = [
 const mediaData = [
   {
     id: 1,
-    image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2025-03/medal_ceremony_5thmens_emerging.jpg',
+    image: 'https://www.ihf.info/sites/default/files/styles/gallery_big_image/public/2025-03/medalceremonycover.png?itok=8-_0vZfi',
     date: '16 Mar. 2025',
     title: 'Medal Ceremony | 5th IHF Men\'s Emerging Nations Championship | © IHF',
     type: 'gallery'
   },
   {
     id: 2,
-    image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2025-03/bulgaria_gbr_5mens_emerging.jpg',
+    image: 'https://www.ihf.info/sites/default/files/styles/gallery_small_image/public/2025-03/BULvsGBRcover.png?itok=rjzLfRwC',
     date: '16 Mar. 2025',
     title: 'Bulgaria vs Great Britain | 5th IHF Men\'s Emerging Nations Championship | © IHF',
     type: 'gallery'
   },
   {
     id: 3,
-    image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2025-03/nigeria_usa_5mens_emerging.jpg',
+    image: 'https://www.ihf.info/sites/default/files/styles/gallery_small_image/public/2025-03/NGRvsUSAcover.png?itok=lH2e2B0v',
     date: '16 Mar. 2025',
     title: 'Nigeria vs USA | 5th IHF Men\'s Emerging Nations Championship | © IHF',
     type: 'gallery'
   },
   {
     id: 4,
-    image: 'https://www.ihf.info/sites/default/files/styles/card_teaser/public/2025-03/paraguay_cyprus_5mens_emerging.jpg',
+    image: 'https://www.ihf.info/sites/default/files/styles/gallery_medium_image/public/2025-03/PARvsCYPcover.png?itok=vkWergoW',
     date: '16 Mar. 2025',
     title: 'Paraguay vs Cyprus | 5th IHF Men\'s Emerging Nations Championship | © IHF',
     type: 'gallery'
@@ -123,31 +123,31 @@ const competitionsData = [
   {
     id: 1,
     title: 'IHF Trophy (U17) Youth Women 2025',
-    image: 'https://www.ihf.info/sites/default/files/styles/medium/public/competition-logos/u17_women_youth.png',
+    image: 'https://www.ihf.info/sites/default/files/2025-02/IHF%20trophy%20Youth_logo_380x310.png',
     link: '/competitions/ihf-trophy-u17-women-2025'
   },
   {
     id: 2,
     title: 'IHF Trophy (U19) Junior Women 2025',
-    image: 'https://www.ihf.info/sites/default/files/styles/medium/public/competition-logos/u19_women_junior.png',
+    image: 'https://www.ihf.info/sites/default/files/2025-02/IHF%20trophy%20Junior_logo_380x310.png',
     link: '/competitions/ihf-trophy-u19-women-2025'
   },
   {
     id: 3,
     title: '11th IHF Men\'s Youth (U19) World Championship 2025 Egypt',
-    image: 'https://www.ihf.info/sites/default/files/styles/medium/public/competition-logos/u19_men_egypt_2025.png',
+    image: 'https://www.ihf.info/sites/default/files/2022-06/TWG%202022%20Birmingham_logo_3.png',
     link: '/competitions/mens-youth-world-championship-2025'
   },
   {
     id: 4,
     title: '25th IHF Men\'s Junior World Championship 2025 Poland',
-    image: 'https://www.ihf.info/sites/default/files/styles/medium/public/competition-logos/u21_men_world_championship.png',
+    image: 'https://www.ihf.info/sites/default/files/2019-10/awbg_qatar_generic_0.png',
     link: '/competitions/mens-junior-world-championship-2025'
   },
   {
     id: 5,
     title: 'Women\'s World Championship 2025',
-    image: 'https://www.ihf.info/sites/default/files/styles/medium/public/competition-logos/wwch_2025.png',
+    image: 'https://www.ihf.info/sites/default/files/2025-02/IHF%20trophy%20Youth_logo_380x310.png',
     link: '/competitions/womens-world-championship-2025'
   }
 ];
@@ -157,28 +157,33 @@ const partnersData = [
   {
     id: 1,
     name: 'Gerflor',
-    logo: 'https://www.ihf.info/sites/default/files/styles/sponsor_logo_large/public/2022-03/Gerflor%20white%20background.png',
+    logo: 'https://www.ihf.info/themes/ihf_theme/assets/img/partners/3-new.jpg',
     link: 'https://www.gerflor.com/'
   },
   {
     id: 2,
     name: 'Hummel',
-    logo: 'https://www.ihf.info/sites/default/files/styles/sponsor_logo_large/public/2022-03/hummel%20white%20background.png',
+    logo: 'https://www.ihf.info/themes/ihf_theme/assets/img/partners/5-new.jpg',
     link: 'https://www.hummel.net/'
   },
   {
     id: 3,
     name: 'Sportfive',
-    logo: 'https://www.ihf.info/sites/default/files/styles/sponsor_logo_large/public/2022-03/SPORTFIVE_RGB_BLACK.png',
+    logo: 'https://www.ihf.info/themes/ihf_theme/assets/img/partners/2-new.jpg?792',
     link: 'https://sportfive.com/'
   },
   {
     id: 4,
     name: 'Molten',
-    logo: 'https://www.ihf.info/sites/default/files/styles/sponsor_logo_large/public/2022-03/Molten%20Logo%20%28jpg%29.png',
+    logo: 'https://www.ihf.info/themes/ihf_theme/assets/img/partners/2-new.jpg?792',
     link: 'https://www.molten.co.jp/en/'
   }
 ];
+
+// Anti-doping banner URLs
+const bannerData = {
+  antiDoping: "https://www.ihf.info/sites/default/files/styles/news_details/public/2021-07/Competition%20manipulation_1440x600.jpg?itok=qvCV97Bp"
+};
 
 // Mock API methods
 const ApiService = {
@@ -247,6 +252,15 @@ const ApiService = {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(partnersData);
+      }, 300);
+    });
+  },
+
+  // Get banner URLs
+  getBannerUrls: () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(bannerData);
       }, 300);
     });
   },
