@@ -8,7 +8,7 @@
 }
 
 .president-message {
-  background-image: url('https://www.ihf.info/sites/default/files/styles/card_teaser/public/2022-12/Hassan%20Moustafa.jpg');
+  background-image: url('https://www.ihf.info/sites/default/files/presidents/mapBg-1.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -72,7 +72,7 @@
 }
 
 .world-map {
-  background-image: url('https://www.ihf.info/themes/ihf_theme/assets/img/map.svg');
+  background-image: url('https://www.ihf.info/sites/default/files/presidents/mapBg-2.jpg');
   background-size: cover;
   background-position: center;
   background-color: #303f9f;
