@@ -1,34 +1,63 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './Partners.css';
+import ApiService from '../services/api.service';
 
 const Partners = () => {
-  const partners = [
-    {
-      id: 1,
-      name: 'Gerflor',
-      logo: 'https://www.ihf.info/sites/default/files/styles/sponsor_logo_large/public/2022-03/Gerflor%20white%20background.png',
-      link: 'https://www.gerflor.com/'
-    },
-    {
-      id: 2,
-      name: 'Hummel',
-      logo: 'https://www.ihf.info/sites/default/files/styles/sponsor_logo_large/public/2022-03/hummel%20white%20background.png',
-      link: 'https://www.hummel.net/'
-    },
-    {
-      id: 3,
-      name: 'Sportfive',
-      logo: 'https://www.ihf.info/sites/default/files/styles/sponsor_logo_large/public/2022-03/SPORTFIVE_RGB_BLACK.png',
-      link: 'https://sportfive.com/'
-    },
-    {
-      id: 4,
-      name: 'Molten',
-      logo: 'https://www.ihf.info/sites/default/files/styles/sponsor_logo_large/public/2022-03/Molten%20Logo%20%28jpg%29.png',
-      link: 'https://www.molten.co.jp/en/'
-    }
-  ];
+  const [partners, setPartners] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPartners = async () => {
+      try {
+        setIsLoading(true);
+        const data = await ApiService.getPartners();
+        setPartners(data);
+        setIsLoading(false);
+      } catch (err) {
+        console.error('Error fetching partners:', err);
+        setError('Failed to load partners. Please try again later.');
+        setIsLoading(false);
+      }
+    };
+
+    fetchPartners();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section className="partners-section">
+        <Container>
+          <div className="partners-header">
+            <h3 className="partners-title">IHF Partners</h3>
+            <p className="partners-subtitle">Thanks to our great supporters</p>
+          </div>
+          <div className="text-center py-4">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="partners-section">
+        <Container>
+          <div className="partners-header">
+            <h3 className="partners-title">IHF Partners</h3>
+            <p className="partners-subtitle">Thanks to our great supporters</p>
+          </div>
+          <div className="alert alert-danger" role="alert">
+            {error}
+          </div>
+        </Container>
+      </section>
+    );
+  }
 
   return (
     <section className="partners-section">
