@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { FaArrowRight, FaEye } from 'react-icons/fa';
 import './MediaCentre.css';
 import ApiService from '../services/api.service';
