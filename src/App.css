@@ -1,207 +1,131 @@
-.App {
-  text-align: center;
+/* Main app container */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Header Styles */
-.header-top {
-  background-color: #fff;
-  padding: 10px 0;
+/* Main content area */
+.main-content {
+  flex: 1 1 auto;
+  padding-bottom: 2rem;
 }
 
-.logo img {
-  height: 60px;
+/* Global styles */
+body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #333;
+  line-height: 1.5;
 }
 
-.social-icons a {
-  color: #888;
-  margin: 0 5px;
-  font-size: 1.2rem;
-}
-
-.navigation {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.nav-link {
-  color: #113c69 !important;
-  font-weight: 500;
-  padding: 15px !important;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-}
-
-.nav-link:hover {
-  color: #0056b3 !important;
-}
-
-.dropdown-toggle::after {
-  margin-left: 0.5em;
-}
-
-/* Hero Section */
-.hero-section {
-  position: relative;
-  height: 600px;
-  color: white;
-  overflow: hidden;
-}
-
-.hero-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 30px;
-}
-
-.hero-title {
-  font-size: 2.5rem;
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
   font-weight: 700;
-  margin-bottom: 20px;
-  text-transform: uppercase;
+  line-height: 1.2;
 }
 
-.hero-subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
-}
-
-.read-more-btn {
-  background-color: #113c69;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.read-more-btn:hover {
-  background-color: #0a2745;
-}
-
-/* Latest News Section */
-.latest-news {
-  padding: 60px 0;
-  background-color: #f8f9fa;
-}
-
-.section-title {
-  color: #113c69;
-  font-size: 1.8rem;
-  margin-bottom: 40px;
-  position: relative;
-  display: inline-block;
-}
-
-.news-card {
-  margin-bottom: 30px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-  overflow: hidden;
-}
-
-.news-card:hover {
-  transform: translateY(-5px);
-}
-
-.news-image {
-  height: 200px;
-  object-fit: cover;
-}
-
-.news-date {
-  font-size: 0.8rem;
-  color: #777;
-  margin-bottom: 10px;
-}
-
-.news-title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #113c69;
-}
-
-.card-body {
-  padding: 20px;
-}
-
-.go-to-news {
-  text-align: right;
-  margin-top: 20px;
-}
-
-.go-to-news a {
-  color: #113c69;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.go-to-news a:hover {
-  text-decoration: underline;
-}
-
-/* Footer */
-.footer {
-  background-color: #113c69;
-  color: white;
-  padding: 40px 0 20px;
-}
-
-.footer-links h5 {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.footer-links li {
-  margin-bottom: 10px;
-}
-
-.footer-links a {
-  color: #ccc;
+a {
+  color: #0275d8;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
-  color: white;
+a:hover {
+  color: #025aa5;
+  text-decoration: underline;
 }
 
-.footer-bottom {
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Utility classes */
+.text-center {
   text-align: center;
-  padding-top: 30px;
-  margin-top: 30px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  font-size: 0.9rem;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .hero-section {
-    height: 400px;
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-5 {
+  margin-bottom: 3rem;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+/* Responsive container widths - similar to Bootstrap */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
   }
-  
-  .hero-title {
-    font-size: 1.8rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
   }
-  
-  .hero-subtitle {
-    font-size: 1rem;
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
   }
 }
