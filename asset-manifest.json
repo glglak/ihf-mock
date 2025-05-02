@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ihf-mock/static/css/main.3a8cfa8e.css",
+    "main.js": "/ihf-mock/static/js/main.77054ebd.js",
+    "index.html": "/ihf-mock/index.html",
+    "main.3a8cfa8e.css.map": "/ihf-mock/static/css/main.3a8cfa8e.css.map",
+    "main.77054ebd.js.map": "/ihf-mock/static/js/main.77054ebd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3a8cfa8e.css",
+    "static/js/main.77054ebd.js"
+  ]
+}
