@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './UpcomingEvents.css';
 
