@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Container } from 'react-bootstrap';
 import { FaArrowRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Competitions.css';
@@ -34,9 +34,9 @@ const Competitions = () => {
     setActiveSlide((prev) => (prev === 0 ? Math.max(0, competitions.length - 4) : prev - 1));
   };
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setActiveSlide((prev) => (prev === Math.max(0, competitions.length - 4) ? 0 : prev + 1));
-  };
+  }, [competitions.length]);
 
   const handleIndicatorClick = (index) => {
     setActiveSlide(index);
@@ -71,7 +71,7 @@ const Competitions = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [activeSlide, competitions.length]);
+  }, [competitions.length, handleNext]);
 
   if (isLoading) {
     return (
