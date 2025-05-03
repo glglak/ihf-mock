@@ -11,7 +11,9 @@ export {
   Footer
 };
 
-export default {
+const layoutComponents = {
   Header,
   Footer
 };
+
+export default layoutComponents;
