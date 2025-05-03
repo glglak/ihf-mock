@@ -10,9 +10,10 @@ const Header = () => {
         <Container>
           <Navbar.Brand as={Link} to="/">
             <img 
-              src="https://via.placeholder.com/150x60?text=IHF+Logo"
+              src="https://www.ihf.info/themes/ihf_theme/assets/img/logo.png?739"
               alt="IHF Logo"
               className="header-logo"
+              crossOrigin="anonymous"
             />
           </Navbar.Brand>
           
