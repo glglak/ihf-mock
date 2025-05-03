@@ -3,8 +3,8 @@
  * Export all common UI components
  */
 
-import Button from './Button/Button';
-import Card from './Card/Card';
+import Button from './Button';
+import Card from './Card';
 
 export {
   Button,
