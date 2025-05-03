@@ -8,6 +8,13 @@ const WorldMapSection = () => {
       <Container fluid>
         <Row>
           <Col md={6} className="president-message">
+            {/* Add background image as an actual img element with crossOrigin */}
+            <img 
+              src="https://www.ihf.info/sites/default/files/presidents/mapBg-1.jpg" 
+              alt="President background" 
+              className="background-image"
+              crossOrigin="anonymous"
+            />
             <div className="message-content">
               <div className="message-text">
                 <p className="quote-text">
@@ -23,6 +30,13 @@ const WorldMapSection = () => {
           </Col>
           
           <Col md={6} className="world-map">
+            {/* Add background image as an actual img element with crossOrigin */}
+            <img 
+              src="https://www.ihf.info/sites/default/files/presidents/mapBg-2.jpg" 
+              alt="World map background" 
+              className="background-image"
+              crossOrigin="anonymous"
+            />
             <div className="map-content">
               <h3 className="map-title">IHF WORLD MAP</h3>
               <p className="map-description">
