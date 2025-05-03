@@ -11,7 +11,9 @@ export {
   Calendar
 };
 
-export default {
+const eventsComponents = {
   EventsList,
   Calendar
 };
+
+export default eventsComponents;
