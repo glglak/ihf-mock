@@ -4,6 +4,22 @@ import './Slider.css';
 
 const Slider = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [loadedImages, setLoadedImages] = useState({});
+
+  // Preload images with crossOrigin attribute
+  useEffect(() => {
+    slides.forEach((slide, index) => {
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.src = slide.image;
+      img.onload = () => {
+        setLoadedImages(prev => ({
+          ...prev,
+          [index]: true
+        }));
+      };
+    });
+  }, [slides]);
 
   // Auto-advance slides
   useEffect(() => {
@@ -29,19 +45,33 @@ const Slider = ({ slides }) => {
     setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
   };
 
-  const slideStyle = {
-    backgroundImage: `url(${slides[currentSlide].image})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  };
-
+  // Rather than using background-image style, we'll use an actual img tag with crossOrigin
   return (
-    <div className="hero-section" style={slideStyle}>
-      <Container className="hero-content">
-        <h1 className="hero-title">{slides[currentSlide].title}</h1>
-        <p className="hero-subtitle">{slides[currentSlide].description}</p>
-        <Button variant="primary" className="read-more-btn">Read More</Button>
-      </Container>
+    <div className="hero-section">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`slide-item ${index === currentSlide ? 'active' : ''}`}
+          style={{ 
+            opacity: index === currentSlide ? 1 : 0,
+            transition: 'opacity 0.5s ease-in-out'
+          }}
+        >
+          <img 
+            src={slide.image} 
+            alt={slide.title}
+            crossOrigin="anonymous"
+            className="slide-background"
+          />
+          <div className="slide-content">
+            <Container className="hero-content">
+              <h1 className="hero-title">{slide.title}</h1>
+              <p className="hero-subtitle">{slide.description}</p>
+              <Button variant="primary" className="read-more-btn">Read More</Button>
+            </Container>
+          </div>
+        </div>
+      ))}
 
       {/* Navigation arrows */}
       <button className="carousel-control-prev" type="button" onClick={prevSlide}>
