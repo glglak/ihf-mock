@@ -12,7 +12,7 @@ const Partners = () => {
     const fetchPartners = async () => {
       try {
         setIsLoading(true);
-        const data = await ApiService.getPartners();
+        const data = await ApiService.getPartnerLogos();
         setPartners(data);
         setIsLoading(false);
       } catch (err) {
@@ -71,11 +71,12 @@ const Partners = () => {
           <Row className="justify-content-center">
             {partners.map((partner) => (
               <Col key={partner.id} xs={6} sm={3} className="partner-col">
-                <a href={partner.link} target="_blank" rel="noopener noreferrer" className="partner-link">
+                <a href={partner.url} target="_blank" rel="noopener noreferrer" className="partner-link">
                   <img 
                     src={partner.logo} 
                     alt={partner.name} 
                     className="partner-logo" 
+                    crossOrigin="anonymous"
                   />
                 </a>
               </Col>
