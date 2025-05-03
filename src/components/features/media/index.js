@@ -3,7 +3,7 @@
  * Export all media-related components
  */
 
-import MediaGrid from './MediaGrid/MediaGrid';
+import MediaGrid from './MediaGrid';
 
 export {
   MediaGrid
