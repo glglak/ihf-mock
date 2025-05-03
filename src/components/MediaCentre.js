@@ -83,7 +83,12 @@ const MediaCentre = () => {
               style={{ width: `${mediaItemWidth[index]}%` }}
             >
               <div className="media-overlay"></div>
-              <img src={item.image} alt={item.title} className="media-image" />
+              <img 
+                src={item.image} 
+                alt={item.title} 
+                className="media-image" 
+                crossOrigin="anonymous"
+              />
               <div className="media-content">
                 <span className="media-date">{item.date}</span>
                 <h3 className="media-title">{item.title}</h3>
