@@ -3,8 +3,8 @@
  * Export all events-related components
  */
 
-import EventsList from './EventsList';
-import Calendar from './Calendar';
+import EventsList from './EventsList/EventsList';
+import Calendar from './Calendar/Calendar';
 
 export {
   EventsList,
