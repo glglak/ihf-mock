@@ -9,6 +9,8 @@ export {
   Home
 };
 
-export default {
+const pages = {
   Home
 };
+
+export default pages;
