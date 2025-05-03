@@ -138,7 +138,8 @@ const Competitions = () => {
                       <img 
                         src={competition.image} 
                         alt={competition.title} 
-                        className="competition-image" 
+                        className="competition-image"
+                        crossOrigin="anonymous"
                       />
                     </div>
                     <h3 className="competition-title">{competition.title}</h3>
