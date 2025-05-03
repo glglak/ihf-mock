@@ -68,7 +68,12 @@ const NewsSection = () => {
           {newsItems.map(item => (
             <Col lg={3} md={6} sm={12} key={item.id} className="mb-4">
               <Card className="news-card h-100">
-                <Card.Img variant="top" src={item.image} className="news-image" />
+                <Card.Img 
+                  variant="top" 
+                  src={item.image} 
+                  className="news-image" 
+                  crossOrigin="anonymous"
+                />
                 <Card.Body>
                   <div className="news-date">{item.date}</div>
                   <Card.Title className="news-title">{item.title}</Card.Title>
