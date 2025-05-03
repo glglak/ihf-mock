@@ -2,6 +2,13 @@
 
 A modern, well-structured React application for the International Handball Federation mock website. This project follows best practices for component organization, service architecture, and code maintainability.
 
+## Live Demo
+
+The project is deployed on GitHub Pages and can be accessed at:
+https://glglak.github.io/ihf-mock/
+
+**Note:** If you encounter 404 errors (with manifest.json, favicon.ico, etc.), this is likely due to the GitHub Pages configuration. These issues don't affect the main functionality of the application and are related to asset paths in the GitHub Pages environment.
+
 ## Project Structure
 
 The project follows a feature-based organization with clear separation of concerns:
@@ -54,7 +61,7 @@ The project uses environment-specific configuration files:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ihf-mock.git
+git clone https://github.com/glglak/ihf-mock.git
 
 # Navigate to the project directory
 cd ihf-mock
@@ -89,6 +96,15 @@ The project uses GitHub Actions for continuous integration and deployment to Git
 1. Installs dependencies
 2. Builds the project
 3. Deploys to GitHub Pages
+
+### Fixing 404 Errors
+
+If you encounter 404 errors in the deployed GitHub Pages version, you can fix them by:
+
+1. Adding `"homepage": "https://glglak.github.io/ihf-mock"` to your package.json
+2. Ensuring all relative URLs use the `PUBLIC_URL` environment variable
+3. Adding a `<base href="%PUBLIC_URL%/">` tag to your index.html
+4. For React Router, use `<BrowserRouter basename={process.env.PUBLIC_URL}>` to ensure proper routing
 
 ## Best Practices
 
