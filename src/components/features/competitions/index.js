@@ -9,6 +9,8 @@ export {
   CompetitionsList
 };
 
-export default {
+const competitionsComponents = {
   CompetitionsList
 };
+
+export default competitionsComponents;
