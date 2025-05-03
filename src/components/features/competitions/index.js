@@ -3,7 +3,7 @@
  * Export all competitions-related components
  */
 
-import CompetitionsList from './CompetitionsList';
+import CompetitionsList from './CompetitionsList/CompetitionsList';
 
 export {
   CompetitionsList
