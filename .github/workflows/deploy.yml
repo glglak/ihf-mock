@@ -29,6 +29,13 @@ jobs:
       
     - name: Build
       run: npm run build
+      env:
+        PUBLIC_URL: /ihf-mock
+        
+    - name: Ensure CNAME file exists in build
+      run: |
+        touch build/CNAME
+        echo "glglak.github.io" > build/CNAME
       
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
@@ -36,3 +43,4 @@ jobs:
         folder: build
         branch: gh-pages
         token: ${{ secrets.GITHUB_TOKEN }}
+        clean: true
