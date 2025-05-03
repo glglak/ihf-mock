@@ -9,6 +9,8 @@ export {
   MediaGrid
 };
 
-export default {
+const mediaComponents = {
   MediaGrid
 };
+
+export default mediaComponents;
