@@ -37,17 +37,25 @@ const Newsletter = () => {
     <section className="newsletter-section">
       <Container>
         <Row className="align-items-center">
-          <Col lg={6} md={6} className="d-flex align-items-center footer-logo">
-            <img
-              src="https://www.ihf.info/themes/ihf_theme/assets/img/small-logo.png?792"
-              alt="IHF Logo"
-              className="ihf-logo"
-            />
-            <img
-              src="https://www.ihf.info/themes/ihf_theme/assets/img/footer-logo.png"
-              alt="IHF 75 Years"
-              className="ihf-anniversary-logo"
-            />
+          <Col lg={6} md={6} className="d-flex align-items-center footer-logos">
+            <div className="logos-container">
+              <img
+                src="https://www.ihf.info/themes/ihf_theme/assets/img/small-logo.png?792"
+                alt="IHF Logo"
+                className="ihf-logo"
+              />
+              <img
+                src="https://www.ihf.info/themes/ihf_theme/assets/img/footer-logo.png"
+                alt="IHF 75 Years"
+                className="ihf-anniversary-logo"
+              />
+            </div>
+            <div className="copyright">
+              <p>All rights reserved © 2025 IHF</p>
+              <div className="footer-links">
+                <a href="/sitemap">Sitemap</a> | <a href="/privacy">Privacy Statement</a> | <a href="/terms">Terms of Use</a> | <a href="/contact">Contact Us</a> | <a href="/mobile-apps">Mobile Apps</a>
+              </div>
+            </div>
           </Col>
           <Col lg={6} md={6}>
             <div className="newsletter-content">
