@@ -8,8 +8,8 @@ const InfoBanner = ({ imageUrl, link }) => {
       <Container>
         <a href={link} className="banner-link">
           <img 
-            src={imageUrl} 
-            alt="Information Banner" 
+            src={imageUrl || "https://www.ihf.info/themes/ihf_theme/assets/img/Competition-manipulation-banner.jpg"} 
+            alt="Athlete 365 Banner" 
             className="banner-image" 
             crossOrigin="anonymous"
           />
