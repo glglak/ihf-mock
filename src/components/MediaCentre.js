@@ -88,8 +88,7 @@ const MediaCentre = () => {
                   <img 
                     src={item.image} 
                     alt={item.title} 
-                    className="media-image" 
-                    crossOrigin="anonymous"
+                    className="media-image"
                   />
                   <div className="media-overlay"></div>
                   <div className="media-content">
