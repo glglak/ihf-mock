@@ -49,37 +49,37 @@ class ApiService {
    * @returns {Promise<Array>} List of news items
    */
   static async getNews() {
-    // Mock data for development with full URLs
+    // Mock data for development with full URLs matching the latest news shown in the reference image
     return new Promise(resolve => {
       setTimeout(() => {
         resolve([
           {
             id: 1,
+            title: 'Austria appoint Iker Romero as men\'s national team coach',
+            date: 'April 30, 2025',
+            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/austria_coach.jpg',
+            summary: 'The Austrian Handball Federation has announced the appointment of Spanish coach Iker Romero.'
+          },
+          {
+            id: 2,
+            title: 'Kiel, Flensburg, Melsungen and Montpellier seal tickets to EHF Finals',
+            date: 'April 30, 2025',
+            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/ehf_finals.jpg',
+            summary: 'The lineup for the EHF Finals is now complete with four teams securing their spots.'
+          },
+          {
+            id: 3,
             title: 'The World Games: 100 Days to Go until Chengdu 2025',
             date: 'April 29, 2025',
             image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/FARSTS330.png?itok=uyOF0P3D',
             summary: 'With 100 days to go until the World Games in Chengdu, preparations continue at an impressive pace.'
           },
           {
-            id: 2,
+            id: 4,
             title: 'Twists and turns deliver four fantastic semi-finalists in the EHF Champions League',
             date: 'May 02, 2025',
             image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/Romero330.png?itok=xz8z1EpM',
             summary: 'The EHF Champions League semifinals are set after thrilling quarterfinal matches.'
-          },
-          {
-            id: 3,
-            title: 'Lieder announces retirement: "Those memories are worth more than any medal"',
-            date: 'May 01, 2025',
-            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/Flensb330.png?itok=3yWsY2Fg',
-            summary: 'Legendary handball player Janna Lieder has announced her retirement from professional handball.'
-          },
-          {
-            id: 4,
-            title: 'Surprise, respect and achievement – Faroese handball celebrated by stamp set',
-            date: 'May 01, 2025',
-            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/TWC330.png?itok=hRU2wupr',
-            summary: 'The Faroe Islands have honored their handball heritage with a special commemorative stamp collection.'
           }
         ]);
       }, 1000);
@@ -137,9 +137,9 @@ class ApiService {
         resolve([
           {
             id: 1,
-            title: 'World Championship Highlights 2025',
+            title: 'Bulgaria vs Great Britain | 5th IHF Men\'s Emerging Nations Championship',
             image: 'https://www.ihf.info/sites/default/files/styles/gallery_big_image/public/2025-03/medalceremonycover.png?itok=8-_0vZfi',
-            date: '28 Apr 2025',
+            date: '18 Mar 2025',
             type: 'gallery'
           },
           {
