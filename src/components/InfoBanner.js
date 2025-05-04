@@ -7,7 +7,12 @@ const InfoBanner = ({ imageUrl, link }) => {
     <section className="info-banner">
       <Container>
         <a href={link} className="banner-link">
-          <img src={imageUrl} alt="Information Banner" className="banner-image" />
+          <img 
+            src={imageUrl} 
+            alt="Information Banner" 
+            className="banner-image" 
+            crossOrigin="anonymous"
+          />
         </a>
       </Container>
     </section>
