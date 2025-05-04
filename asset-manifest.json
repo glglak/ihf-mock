@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ihf-mock/static/css/main.929002e3.css",
-    "main.js": "/ihf-mock/static/js/main.cb58e21d.js",
+    "main.js": "/ihf-mock/static/js/main.d980f0e9.js",
     "index.html": "/ihf-mock/index.html",
     "main.929002e3.css.map": "/ihf-mock/static/css/main.929002e3.css.map",
-    "main.cb58e21d.js.map": "/ihf-mock/static/js/main.cb58e21d.js.map"
+    "main.d980f0e9.js.map": "/ihf-mock/static/js/main.d980f0e9.js.map"
   },
   "entrypoints": [
     "static/css/main.929002e3.css",
-    "static/js/main.cb58e21d.js"
+    "static/js/main.d980f0e9.js"
   ]
 }
