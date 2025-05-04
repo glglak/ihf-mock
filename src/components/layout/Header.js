@@ -31,6 +31,9 @@ const Header = () => {
                 <span>Login</span>
               </Link>
             </div>
+            <Link to="/search" className="search-icon-link">
+              <FaSearch />
+            </Link>
           </div>
         </Container>
       </div>
@@ -40,7 +43,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="main-navbar-nav" />
           
           <Navbar.Collapse id="main-navbar-nav">
-            <Nav className="me-auto navigation-links">
+            <Nav className="mx-auto navigation-links">
               <Nav.Link as={Link} to="/">HOME</Nav.Link>
               
               <NavDropdown title="ABOUT" id="about-dropdown">
@@ -74,11 +77,6 @@ const Header = () => {
                 <NavDropdown.Item as={Link} to="/games/olympic-games">Olympic Games</NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <div className="search-container">
-              <Link to="/search" className="search-link">
-                <FaSearch className="search-icon" />
-              </Link>
-            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
