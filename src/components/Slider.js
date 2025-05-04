@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Slider.css';
 
 const Slider = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loadedImages, setLoadedImages] = useState({});
 
-  // Preload images with crossOrigin attribute
+  // Preload images
   useEffect(() => {
     slides.forEach((slide, index) => {
       const img = new Image();
-      img.crossOrigin = "anonymous";
       img.src = slide.image;
       img.onload = () => {
         setLoadedImages(prev => ({
@@ -25,7 +25,7 @@ const Slider = ({ slides }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 6000); // Change slide every 6 seconds
     
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -55,7 +55,6 @@ const Slider = ({ slides }) => {
           <img 
             src={slide.image} 
             alt={slide.title}
-            crossOrigin="anonymous"
             className="slide-background"
           />
           <div className="slide-overlay"></div>
@@ -63,7 +62,14 @@ const Slider = ({ slides }) => {
             <div className="slide-text">
               <h1 className="slide-title">{slide.title}</h1>
               <p className="slide-description">{slide.description}</p>
-              <Button variant="primary" className="read-more-btn">Read More</Button>
+              <Button 
+                as={Link} 
+                to="/news" 
+                variant="primary" 
+                className="read-more-btn"
+              >
+                Read More
+              </Button>
             </div>
           </Container>
         </div>
