@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { FaArrowRight, FaEye } from 'react-icons/fa';
 import './MediaCentre.css';
 import ApiService from '../services/api.service';
@@ -25,13 +25,6 @@ const MediaCentre = () => {
 
     fetchMedia();
   }, []);
-
-  const mediaItemWidth = {
-    0: 50, // First item takes 50% width (large)
-    1: 25, // Second item takes 25% width
-    2: 25, // Third item takes 25% width
-    3: 50  // Fourth item takes 50% width (if there are 4 items)
-  };
 
   if (isLoading) {
     return (
@@ -65,6 +58,14 @@ const MediaCentre = () => {
     );
   }
 
+  // Create a layout similar to the screenshot with specific sizes
+  const layoutConfig = [
+    { cols: 8, span: "big-image" },    // First item - big image
+    { cols: 4, span: "small-image" },  // Second item - small image (top right)
+    { cols: 4, span: "small-image" },  // Third item - small image (bottom right)
+    { cols: 8, span: "medium-image" }  // Fourth item - medium image (bottom left, if it exists)
+  ];
+
   return (
     <section className="media-centre-section">
       <Container>
@@ -75,30 +76,36 @@ const MediaCentre = () => {
           </a>
         </div>
 
-        <div className="media-grid">
-          {mediaItems.map((item, index) => (
-            <div 
+        <Row className="media-grid">
+          {mediaItems.slice(0, 4).map((item, index) => (
+            <Col 
               key={item.id} 
-              className={`media-item media-item-${index}`}
-              style={{ width: `${mediaItemWidth[index]}%` }}
+              md={layoutConfig[index]?.cols || 6}
+              className={`media-item-col ${layoutConfig[index]?.span || ''}`}
             >
-              <div className="media-overlay"></div>
-              <img 
-                src={item.image} 
-                alt={item.title} 
-                className="media-image" 
-                crossOrigin="anonymous"
-              />
-              <div className="media-content">
-                <span className="media-date">{item.date}</span>
-                <h3 className="media-title">{item.title}</h3>
-                <a href={`/media/${item.id}`} className="view-gallery">
-                  <FaEye /> View Gallery
-                </a>
+              <div className="media-item">
+                <div className="media-image-container">
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    className="media-image" 
+                    crossOrigin="anonymous"
+                  />
+                  <div className="media-overlay"></div>
+                  <div className="media-content">
+                    <div className="media-date">
+                      {item.date}
+                    </div>
+                    <h3 className="media-title">{item.title}</h3>
+                    <a href={`/media/${item.id}`} className="view-gallery">
+                      <FaEye /> View Gallery
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
+            </Col>
           ))}
-        </div>
+        </Row>
       </Container>
     </section>
   );
