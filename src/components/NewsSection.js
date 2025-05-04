@@ -7,13 +7,9 @@ import ApiService from '../services/api.service';
 
 const NewsSection = () => {
   const [newsItems, setNewsItems] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  const itemsPerPage = 4;
-  const totalPages = Math.ceil(newsItems.length / itemsPerPage);
-
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -30,14 +26,6 @@ const NewsSection = () => {
 
     fetchNews();
   }, []);
-
-  const nextPage = () => {
-    setCurrentPage((prev) => (prev + 1) % totalPages);
-  };
-
-  const prevPage = () => {
-    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
-  };
 
   if (isLoading) {
     return (
@@ -71,11 +59,6 @@ const NewsSection = () => {
     );
   }
 
-  const displayedNews = newsItems.slice(
-    currentPage * itemsPerPage,
-    (currentPage + 1) * itemsPerPage
-  );
-
   return (
     <section className="latest-news">
       <Container>
@@ -88,47 +71,31 @@ const NewsSection = () => {
           </div>
         </div>
         
-        <div className="news-slider">
-          <button 
-            className="news-nav prev" 
-            onClick={prevPage}
-            disabled={totalPages <= 1}
-          >
-            <FaChevronLeft />
-          </button>
-          
-          <Row className="news-items">
-            {displayedNews.map((item) => (
-              <Col key={item.id} lg={3} md={6} className="news-item-col">
-                <Card className="news-card">
-                  <div className="news-image-container">
+        <Row className="news-items">
+          {newsItems.map((item) => (
+            <Col key={item.id} lg={3} md={6} className="news-item-col">
+              <Card className="news-card">
+                <div className="news-image-container">
+                  <Link to={`/news/${item.id}`}>
                     <Card.Img 
                       variant="top" 
                       src={item.image} 
                       className="news-image" 
-                      crossOrigin="anonymous"
                     />
-                  </div>
-                  <Card.Body>
-                    <div className="news-date">{item.date}</div>
-                    <Card.Title className="news-title">{item.title}</Card.Title>
-                    <Link to={`/news/${item.id}`} className="read-more">
-                      Read more
+                  </Link>
+                </div>
+                <Card.Body>
+                  <div className="news-date">{item.date}</div>
+                  <Card.Title className="news-title">
+                    <Link to={`/news/${item.id}`} className="news-title-link">
+                      {item.title}
                     </Link>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-          
-          <button 
-            className="news-nav next" 
-            onClick={nextPage}
-            disabled={totalPages <= 1}
-          >
-            <FaChevronRight />
-          </button>
-        </div>
+                  </Card.Title>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </Container>
     </section>
   );
