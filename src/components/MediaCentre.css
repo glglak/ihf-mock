@@ -21,7 +21,7 @@
 .view-all {
   display: flex;
   align-items: center;
-  color: #0a3d62;
+  color: #c1a01e;
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
@@ -34,8 +34,8 @@
 }
 
 .view-all:hover {
-  color: #0a3d62;
-  text-decoration: underline;
+  color: #a38c1a;
+  text-decoration: none;
 }
 
 .view-all:hover svg {
@@ -60,7 +60,7 @@
   height: 100%;
   width: 100%;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 0;
 }
 
 .big-image .media-image-container {
