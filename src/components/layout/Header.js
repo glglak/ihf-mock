@@ -21,14 +21,14 @@ const Header = () => {
           </Navbar.Brand>
           
           <div className="social-header-links">
-            <a href="#" className="social-icon"><FaFacebook /></a>
-            <a href="#" className="social-icon"><FaTwitter /></a>
-            <a href="#" className="social-icon"><FaYoutube /></a>
-            <a href="#" className="social-icon"><FaInstagram /></a>
-            <a href="#" className="social-icon"><FaTiktok /></a>
+            <a href="https://facebook.com/ihf" className="social-icon"><FaFacebook /></a>
+            <a href="https://twitter.com/ihf" className="social-icon"><FaTwitter /></a>
+            <a href="https://youtube.com/ihf" className="social-icon"><FaYoutube /></a>
+            <a href="https://instagram.com/ihf" className="social-icon"><FaInstagram /></a>
+            <a href="https://tiktok.com/@ihf" className="social-icon"><FaTiktok /></a>
             <div className="header-right-icons">
-              <a href="#" className="login-icon"><FaUser /></a>
-              <a href="#" className="search-icon"><FaSearch /></a>
+              <a href="/login" className="login-icon"><FaUser /></a>
+              <a href="/search" className="search-icon"><FaSearch /></a>
             </div>
           </div>
           
