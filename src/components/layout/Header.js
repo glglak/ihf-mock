@@ -12,7 +12,7 @@ const Header = () => {
           <div className="logo-container">
             <Link to="/">
               <img 
-                src="/ihf-logo-full.png"
+                src="https://www.ihf.info/themes/ihf_theme/assets/img/logo.png?739"
                 alt="International Handball Federation"
                 className="header-logo"
               />
