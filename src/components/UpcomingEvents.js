@@ -114,12 +114,11 @@ const UpcomingEvents = () => {
 
   return (
     <section className="upcoming-events-section">
-      {/* Add background image with crossOrigin */}
+      {/* Use direct URL for background image */}
       <img 
         src="https://www.ihf.info/themes/ihf_theme/assets/img/upcoming-events.jpg" 
         alt="Upcoming events background" 
         className="background-image"
-        crossOrigin="anonymous"
       />
       <Container>
         <div className="section-header">
