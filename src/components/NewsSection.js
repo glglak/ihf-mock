@@ -7,8 +7,11 @@ import ApiService from '../services/api.service';
 
 const NewsSection = () => {
   const [newsItems, setNewsItems] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  
+  const itemsPerPage = 4;
   
   useEffect(() => {
     const fetchNews = async () => {
@@ -26,6 +29,16 @@ const NewsSection = () => {
 
     fetchNews();
   }, []);
+
+  const totalPages = Math.ceil(newsItems.length / itemsPerPage);
+
+  const nextPage = () => {
+    setCurrentPage((prev) => (prev + 1) % totalPages);
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+  };
 
   if (isLoading) {
     return (
@@ -59,6 +72,11 @@ const NewsSection = () => {
     );
   }
 
+  const displayedNews = newsItems.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
+
   return (
     <section className="latest-news">
       <Container>
@@ -71,31 +89,51 @@ const NewsSection = () => {
           </div>
         </div>
         
-        <Row className="news-items">
-          {newsItems.map((item) => (
-            <Col key={item.id} lg={3} md={6} className="news-item-col">
-              <Card className="news-card">
-                <div className="news-image-container">
-                  <Link to={`/news/${item.id}`}>
-                    <Card.Img 
-                      variant="top" 
-                      src={item.image} 
-                      className="news-image" 
-                    />
-                  </Link>
-                </div>
-                <Card.Body>
-                  <div className="news-date">{item.date}</div>
-                  <Card.Title className="news-title">
-                    <Link to={`/news/${item.id}`} className="news-title-link">
-                      {item.title}
+        <div className="news-items">
+          {totalPages > 1 && (
+            <button 
+              className="news-nav prev" 
+              onClick={prevPage}
+            >
+              <FaChevronLeft />
+            </button>
+          )}
+          
+          <Row>
+            {displayedNews.map((item) => (
+              <Col key={item.id} lg={3} md={6} className="news-item-col">
+                <Card className="news-card">
+                  <div className="news-image-container">
+                    <Link to={`/news/${item.id}`}>
+                      <Card.Img 
+                        variant="top" 
+                        src={item.image} 
+                        className="news-image" 
+                      />
                     </Link>
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+                  </div>
+                  <Card.Body>
+                    <div className="news-date">{item.date}</div>
+                    <Card.Title className="news-title">
+                      <Link to={`/news/${item.id}`} className="news-title-link">
+                        {item.title}
+                      </Link>
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+          
+          {totalPages > 1 && (
+            <button 
+              className="news-nav next" 
+              onClick={nextPage}
+            >
+              <FaChevronRight />
+            </button>
+          )}
+        </div>
       </Container>
     </section>
   );
