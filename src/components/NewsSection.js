@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import './NewsSection.css';
 import ApiService from '../services/api.service';
 
 const NewsSection = () => {
   const [newsItems, setNewsItems] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  
+  const itemsPerPage = 4;
+  const totalPages = Math.ceil(newsItems.length / itemsPerPage);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -26,11 +31,21 @@ const NewsSection = () => {
     fetchNews();
   }, []);
 
+  const nextPage = () => {
+    setCurrentPage((prev) => (prev + 1) % totalPages);
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+  };
+
   if (isLoading) {
     return (
       <section className="latest-news">
         <Container>
-          <h2 className="section-title">LATEST NEWS</h2>
+          <div className="section-header">
+            <h2 className="section-title">LATEST NEWS</h2>
+          </div>
           <div className="text-center py-4">
             <div className="spinner-border text-primary" role="status">
               <span className="visually-hidden">Loading...</span>
@@ -45,7 +60,9 @@ const NewsSection = () => {
     return (
       <section className="latest-news">
         <Container>
-          <h2 className="section-title">LATEST NEWS</h2>
+          <div className="section-header">
+            <h2 className="section-title">LATEST NEWS</h2>
+          </div>
           <div className="alert alert-danger" role="alert">
             {error}
           </div>
@@ -54,35 +71,64 @@ const NewsSection = () => {
     );
   }
 
+  const displayedNews = newsItems.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
+
   return (
     <section className="latest-news">
       <Container>
-        <div className="d-flex justify-content-between align-items-center mb-4">
+        <div className="section-header">
           <h2 className="section-title">LATEST NEWS</h2>
           <div className="go-to-news">
-            <Link to="/news">GO TO NEWS <FaArrowRight /></Link>
+            <Link to="/news" className="view-all">
+              GO TO NEWS <FaArrowRight />
+            </Link>
           </div>
         </div>
         
-        <Row>
-          {newsItems.map(item => (
-            <Col lg={3} md={6} sm={12} key={item.id} className="mb-4">
-              <Card className="news-card h-100">
-                <Card.Img 
-                  variant="top" 
-                  src={item.image} 
-                  className="news-image" 
-                  crossOrigin="anonymous"
-                />
-                <Card.Body>
-                  <div className="news-date">{item.date}</div>
-                  <Card.Title className="news-title">{item.title}</Card.Title>
-                  <Link to={`/news/${item.id}`} className="btn btn-link p-0">Read more</Link>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+        <div className="news-slider">
+          <button 
+            className="news-nav prev" 
+            onClick={prevPage}
+            disabled={totalPages <= 1}
+          >
+            <FaChevronLeft />
+          </button>
+          
+          <Row className="news-items">
+            {displayedNews.map((item) => (
+              <Col key={item.id} lg={3} md={6} className="news-item-col">
+                <Card className="news-card">
+                  <div className="news-image-container">
+                    <Card.Img 
+                      variant="top" 
+                      src={item.image} 
+                      className="news-image" 
+                      crossOrigin="anonymous"
+                    />
+                  </div>
+                  <Card.Body>
+                    <div className="news-date">{item.date}</div>
+                    <Card.Title className="news-title">{item.title}</Card.Title>
+                    <Link to={`/news/${item.id}`} className="read-more">
+                      Read more
+                    </Link>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+          
+          <button 
+            className="news-nav next" 
+            onClick={nextPage}
+            disabled={totalPages <= 1}
+          >
+            <FaChevronRight />
+          </button>
+        </div>
       </Container>
     </section>
   );
