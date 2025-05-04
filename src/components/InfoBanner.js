@@ -10,8 +10,7 @@ const InfoBanner = ({ imageUrl, link }) => {
           <img 
             src={imageUrl || "https://www.ihf.info/themes/ihf_theme/assets/img/Competition-manipulation-banner.jpg"} 
             alt="Athlete 365 Banner" 
-            className="banner-image" 
-            crossOrigin="anonymous"
+            className="banner-image"
           />
         </a>
       </Container>
