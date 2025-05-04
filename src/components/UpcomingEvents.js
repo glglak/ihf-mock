@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FaMapMarkerAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaChevronLeft, FaChevronRight, FaArrowRight } from 'react-icons/fa';
 import './UpcomingEvents.css';
 
 const UpcomingEvents = () => {
@@ -15,13 +15,6 @@ const UpcomingEvents = () => {
   const events = [
     {
       type: 'EVENT',
-      startDate: { day: '03', month: 'MAY' },
-      endDate: { day: '04', month: 'MAY' },
-      title: 'EHF FINALS WOMEN 2025',
-      location: 'Austria'
-    },
-    {
-      type: 'EVENT',
       startDate: { day: '05', month: 'MAY' },
       endDate: { day: '11', month: 'MAY' },
       title: 'MEN\'S NATIONAL TEAMS WEEK',
@@ -33,6 +26,13 @@ const UpcomingEvents = () => {
       endDate: { day: '10', month: 'MAY' },
       title: '2025/2026 WOMEN\'S IHF TROPHY AFRICA ZONE 5',
       location: 'Uganda'
+    },
+    {
+      type: 'EVENT',
+      startDate: { day: '06', month: 'MAY' },
+      endDate: { day: '15', month: 'MAY' },
+      title: '10TH ASIAN MEN\'S AND WOMEN\'S BEACH HANDBALL CHAMPIONSHIP',
+      location: 'Oman'
     }
   ];
 
@@ -66,15 +66,22 @@ const UpcomingEvents = () => {
   const renderCalendar = () => {
     const daysInMonth = getDaysInMonth(currentMonth, currentYear);
     const firstDay = getFirstDayOfMonth(currentMonth, currentYear);
+    const calendarDays = [];
     
-    const daysArray = [];
-    
-    // Add empty cells for days before the first day of the month
-    for (let i = 0; i < firstDay; i++) {
-      daysArray.push(<div key={`empty-${i}`} className="calendar-day empty"></div>);
+    // Add days of previous month
+    const daysInPrevMonth = getDaysInMonth(currentMonth === 0 ? 11 : currentMonth - 1, currentMonth === 0 ? currentYear - 1 : currentYear);
+    for (let i = firstDay - 1; i >= 0; i--) {
+      calendarDays.push(
+        <div key={`prev-${daysInPrevMonth - i}`} className="calendar-day disabled">
+          {daysInPrevMonth - i}
+        </div>
+      );
     }
     
-    // Add days of the month
+    // Add days of current month
+    const today = new Date();
+    const isCurrentMonth = today.getMonth() === currentMonth && today.getFullYear() === currentYear;
+    
     for (let i = 1; i <= daysInMonth; i++) {
       // Check if this day has an event
       const hasEvent = events.some(event => {
@@ -82,80 +89,102 @@ const UpcomingEvents = () => {
         return startDay === i && months[currentMonth].toUpperCase().slice(0, 3) === event.startDate.month;
       });
       
-      daysArray.push(
+      calendarDays.push(
         <div 
           key={`day-${i}`} 
-          className={`calendar-day ${hasEvent ? 'has-event' : ''} ${new Date().getDate() === i && new Date().getMonth() === currentMonth && new Date().getFullYear() === currentYear ? 'today' : ''}`}
+          className={`calendar-day ${hasEvent ? 'has-event' : ''} ${isCurrentMonth && today.getDate() === i ? 'today' : ''}`}
         >
           {i}
         </div>
       );
     }
     
-    return daysArray;
+    // Add days of next month
+    const daysNeeded = 42 - calendarDays.length; // Always show 6 weeks
+    for (let i = 1; i <= daysNeeded; i++) {
+      calendarDays.push(
+        <div key={`next-${i}`} className="calendar-day disabled">
+          {i}
+        </div>
+      );
+    }
+    
+    return calendarDays;
   };
 
   return (
-    <section className="upcoming-events">
+    <section className="upcoming-events-section">
+      {/* Add background image with crossOrigin */}
+      <img 
+        src="https://www.ihf.info/themes/ihf_theme/assets/img/upcoming-events.jpg" 
+        alt="Upcoming events background" 
+        className="background-image"
+        crossOrigin="anonymous"
+      />
       <Container>
-        <h2 className="section-heading">UPCOMING EVENTS</h2>
+        <div className="section-header">
+          <h2 className="section-title">UPCOMING EVENTS</h2>
+          <a href="/events" className="full-events-link">
+            FULL EVENTS <FaArrowRight />
+          </a>
+        </div>
         
         <Row>
-          <Col md={9}>
+          <Col lg={8} md={7}>
             <div className="events-container">
               {events.map((event, index) => (
                 <div key={index} className="event-card">
-                  <div className={`event-type ${event.type.toLowerCase()}`}>{event.type}</div>
-                  <div className="event-dates">
-                    <div className="date-container">
-                      <span className="event-day">{event.startDate.day}</span>
-                      <span className="event-month">{event.startDate.month}</span>
+                  <div className={`event-badge ${event.type.toLowerCase()}`}>
+                    {event.type}
+                  </div>
+                  <div className="event-date">
+                    <div className="date-part">
+                      <span className="big-number">{event.startDate.day}</span>
+                      <span className="month">{event.startDate.month}.</span>
                     </div>
-                    <div className="date-separator">/</div>
-                    <div className="date-container">
-                      <span className="event-day">{event.endDate.day}</span>
-                      <span className="event-month">{event.endDate.month}</span>
+                    <span className="date-separator">/</span>
+                    <div className="date-part">
+                      <span className="big-number">{event.endDate.day}</span>
+                      <span className="month">{event.endDate.month}.</span>
                     </div>
                   </div>
-                  <div className="event-title">{event.title}</div>
-                  <div className="event-location">
-                    <FaMapMarkerAlt /> {event.location}
+                  <div className="event-details">
+                    <h3 className="event-title">{event.title}</h3>
+                    <div className="event-location">
+                      <FaMapMarkerAlt /> {event.location}
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           </Col>
           
-          <Col md={3}>
-            <div className="calendar">
+          <Col lg={4} md={5}>
+            <div className="calendar-widget">
               <div className="calendar-header">
-                <button className="calendar-nav-btn" onClick={prevMonth}>
+                <button className="month-nav prev" onClick={prevMonth}>
                   <FaChevronLeft />
                 </button>
-                <div className="calendar-title">
+                <div className="current-month">
                   {months[currentMonth]} {currentYear}
                 </div>
-                <button className="calendar-nav-btn" onClick={nextMonth}>
+                <button className="month-nav next" onClick={nextMonth}>
                   <FaChevronRight />
                 </button>
               </div>
               
-              <div className="calendar-weekdays">
-                <div>S</div>
-                <div>M</div>
-                <div>T</div>
-                <div>W</div>
-                <div>T</div>
-                <div>F</div>
-                <div>S</div>
+              <div className="weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
               </div>
               
-              <div className="calendar-days">
+              <div className="calendar-grid">
                 {renderCalendar()}
-              </div>
-              
-              <div className="full-events-link">
-                <a href="/events">FULL EVENTS</a>
               </div>
             </div>
           </Col>
