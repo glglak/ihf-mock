@@ -16,26 +16,26 @@ class ApiService {
         resolve([
           {
             id: 1,
-            title: 'Men\'s World Championship 2025',
-            description: 'The pinnacle of men\'s handball returns with 32 teams competing for glory',
+            title: 'GOODBYE, PLAYER BELLA! WELCOME, COACH GULLDEN: "HANDBALL HAS GIVEN ME EVERYTHING"',
+            description: 'Once in a while, a changing of the guard comes in any sport.',
             image: 'https://www.ihf.info/sites/default/files/styles/news_details/public/2025-04/Bella1440.jpg?itok=WMLGeDSy'
           },
           {
             id: 2,
-            title: 'Women\'s European Championship',
-            description: 'Europe\'s finest teams battle for continental supremacy',
+            title: 'MEN\'S 2025 WORLD CHAMPIONSHIP PREPARATION UNDERWAY',
+            description: 'The organizing committee has announced venue details for the upcoming championship.',
             image: 'https://www.ihf.info/sites/default/files/styles/news_details/public/2025-04/Kuzma1440.png?itok=JBW2Xw4h'
           },
           {
             id: 3, 
-            title: 'IHF Youth Championship',
-            description: 'The future stars of handball showcase their talents',
+            title: 'IHF WOMEN\'S YOUTH CHAMPIONSHIP QUALIFIERS BEGIN',
+            description: 'The next generation of handball stars take to the court in regional qualifiers.',
             image: 'https://www.ihf.info/sites/default/files/styles/news_details/public/2025-04/Mittun1440.png?itok=jiEfG33t'
           },
           {
             id: 4,
-            title: 'Beach Handball World Championships',
-            description: 'Experience the excitement of beach handball at its finest',
+            title: 'BEACH HANDBALL WORLD CHAMPIONSHIPS SET FOR SUMMER 2025',
+            description: 'Preparations are underway for the biggest beach handball event of the year.',
             image: 'https://www.ihf.info/sites/default/files/styles/news_details/public/2025-04/Simon1440.jpg?itok=uQc4UjCB'
           }
         ]);
@@ -55,31 +55,31 @@ class ApiService {
         resolve([
           {
             id: 1,
-            title: 'First European qualifier for Paris 2024 handball tournament confirmed',
-            date: '28 Apr 2025',
-            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/FARSTS330.png?itok=uyOF0P3D',
-            summary: 'The first European team to qualify for the 2024 Olympic Games handball tournament has been confirmed.'
+            title: 'The World Games: 100 Days to Go until Chengdu 2025',
+            date: 'April 29, 2025',
+            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/WorldGames100Days.jpg',
+            summary: 'With 100 days to go until the World Games in Chengdu, preparations continue at an impressive pace.'
           },
           {
             id: 2,
-            title: 'Rodrigo Corrales extends contract with Veszprém until 2027',
-            date: '27 Apr 2025',
-            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/Romero330.png?itok=xz8z1EpM',
-            summary: 'Spanish goalkeeper Rodrigo Corrales has extended his contract with Hungarian club Telekom Veszprém HC.'
+            title: 'Twists and turns deliver four fantastic semi-finalists in the EHF Champions League',
+            date: 'May 02, 2025',
+            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/ChampionsLeague.jpg',
+            summary: 'The EHF Champions League semifinals are set after thrilling quarterfinal matches.'
           },
           {
             id: 3,
-            title: 'SG Flensburg-Handewitt secure play-off spot in European League',
-            date: '25 Apr 2025',
-            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/Flensb330.png?itok=3yWsY2Fg',
-            summary: 'German club SG Flensburg-Handewitt have secured a spot in the European League play-offs.'
+            title: 'Lieder announces retirement: "Those memories are worth more than any medal"',
+            date: 'May 01, 2025',
+            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/LiederRetirement.jpg',
+            summary: 'Legendary handball player Janna Lieder has announced her retirement from professional handball.'
           },
           {
             id: 4,
-            title: 'Women\'s Tokyo Handball Qualification Tournament Preview',
-            date: '22 Apr 2025',
-            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/TWC330.png?itok=hRU2wupr',
-            summary: 'The Women\'s Tokyo Handball Qualification Tournament begins this weekend.'
+            title: 'Surprise, respect and achievement – Faroese handball celebrated by stamp set',
+            date: 'May 01, 2025',
+            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/FaroeseStamps.jpg',
+            summary: 'The Faroe Islands have honored their handball heritage with a special commemorative stamp collection.'
           }
         ]);
       }, 1000);
@@ -98,25 +98,25 @@ class ApiService {
         resolve([
           {
             id: 1,
-            title: 'IHF Men\'s World Championship',
+            title: 'IHF Trophy (U17) Youth Women 2025',
             image: 'https://www.ihf.info/sites/default/files/2025-02/IHF%20trophy%20Youth_logo_380x310.png',
             link: '/competitions/1'
           },
           {
             id: 2,
-            title: 'IHF Women\'s World Championship',
+            title: 'IHF Trophy (U19) Junior Women 2025',
             image: 'https://www.ihf.info/sites/default/files/2025-02/IHF%20trophy%20Junior_logo_380x310.png',
             link: '/competitions/2'
           },
           {
             id: 3,
-            title: 'IHF Men\'s Junior World Championship',
+            title: '11th IHF Men\'s Youth (U19) World Championship 2025 Egypt',
             image: 'https://www.ihf.info/sites/default/files/2025-04/U19.png',
             link: '/competitions/3'
           },
           {
             id: 4,
-            title: 'IHF Women\'s Junior World Championship',
+            title: '25th IHF Men\'s Junior World Championship 2025 Poland',
             image: 'https://www.ihf.info/sites/default/files/2025-01/Poland2025.png',
             link: '/competitions/4'
           }
