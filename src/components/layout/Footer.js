@@ -12,7 +12,20 @@ const Footer = () => {
       <Container>
         <Row className="footer-top">
           <Col lg={4} md={6} className="mb-4 mb-md-0">
-            <h5 className="footer-heading">About IHF</h5>
+            <div className="footer-logos">
+              <img 
+                src="https://www.ihf.info/themes/ihf_theme/assets/img/small-logo.png?193" 
+                alt="IHF Small Logo" 
+                className="footer-logo-small"
+                crossOrigin="anonymous"
+              />
+              <img 
+                src="https://www.ihf.info/themes/ihf_theme/assets/img/footer-logo.png" 
+                alt="IHF Footer Logo" 
+                className="footer-logo-main"
+                crossOrigin="anonymous"
+              />
+            </div>
             <p className="footer-text">
               The International Handball Federation (IHF) is the administrative and controlling body for handball and beach handball worldwide.
             </p>
