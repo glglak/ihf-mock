@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useState, useEffect, useRef } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import { FaArrowRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Competitions.css';
 import ApiService from '../services/api.service';
@@ -7,11 +7,9 @@ import ApiService from '../services/api.service';
 const Competitions = () => {
   const [competitions, setCompetitions] = useState([]);
   const [activeSlide, setActiveSlide] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const sliderRef = useRef(null);
+  const slideRef = useRef(null);
 
   useEffect(() => {
     const fetchCompetitions = async () => {
@@ -30,48 +28,21 @@ const Competitions = () => {
     fetchCompetitions();
   }, []);
 
+  const totalSlides = competitions.length;
+  const slidesToShow = 4;
+  const maxSlideIndex = Math.max(0, totalSlides - slidesToShow);
+
   const handlePrev = () => {
-    setActiveSlide((prev) => (prev === 0 ? Math.max(0, competitions.length - 4) : prev - 1));
+    setActiveSlide((prev) => Math.max(0, prev - 1));
   };
 
-  const handleNext = useCallback(() => {
-    setActiveSlide((prev) => (prev === Math.max(0, competitions.length - 4) ? 0 : prev + 1));
-  }, [competitions.length]);
+  const handleNext = () => {
+    setActiveSlide((prev) => Math.min(maxSlideIndex, prev + 1));
+  };
 
-  const handleIndicatorClick = (index) => {
+  const handleDotClick = (index) => {
     setActiveSlide(index);
   };
-
-  const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 50) {
-      // Swipe left
-      handleNext();
-    }
-
-    if (touchStart - touchEnd < -50) {
-      // Swipe right
-      handlePrev();
-    }
-  };
-
-  // Auto-scroll every 5 seconds
-  useEffect(() => {
-    if (competitions.length === 0) return;
-    
-    const interval = setInterval(() => {
-      handleNext();
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [competitions.length, handleNext]);
 
   if (isLoading) {
     return (
@@ -116,17 +87,15 @@ const Competitions = () => {
         </div>
 
         <div className="competitions-slider-container">
-          <button className="slider-arrow prev" onClick={handlePrev}>
+          <button 
+            className="slider-arrow prev" 
+            onClick={handlePrev}
+            disabled={activeSlide === 0}
+          >
             <FaChevronLeft />
           </button>
 
-          <div 
-            className="competitions-slider"
-            ref={sliderRef}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
+          <div className="competitions-slider" ref={slideRef}>
             <div 
               className="slider-track" 
               style={{ transform: `translateX(-${activeSlide * 25}%)` }}
@@ -149,20 +118,27 @@ const Competitions = () => {
             </div>
           </div>
 
-          <button className="slider-arrow next" onClick={handleNext}>
+          <button 
+            className="slider-arrow next" 
+            onClick={handleNext}
+            disabled={activeSlide >= maxSlideIndex}
+          >
             <FaChevronRight />
           </button>
         </div>
 
+        {/* Slider indicators */}
         <div className="slider-indicators">
-          {competitions.slice(0, Math.max(1, competitions.length - 3)).map((_, index) => (
-            <button
-              key={index}
-              className={`indicator ${activeSlide === index ? 'active' : ''}`}
-              onClick={() => handleIndicatorClick(index)}
-              aria-label={`Go to slide ${index + 1}`}
-            ></button>
-          ))}
+          {competitions.length > slidesToShow && 
+            Array.from({length: maxSlideIndex + 1}).map((_, index) => (
+              <button
+                key={index}
+                className={`indicator ${activeSlide === index ? 'active' : ''}`}
+                onClick={() => handleDotClick(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              ></button>
+            ))
+          }
         </div>
       </Container>
     </section>
