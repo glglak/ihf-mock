@@ -30,7 +30,7 @@
   height: 30px;
   border-radius: 50%;
   background-color: #f0f0f0;
-  color: #666;
+  color: #777;
   margin-left: 8px;
   transition: all 0.3s ease;
 }
@@ -49,7 +49,7 @@
 .login-link {
   display: flex;
   align-items: center;
-  color: #666;
+  color: #777;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -62,15 +62,26 @@
   margin-right: 8px;
 }
 
+.search-icon-link {
+  margin-left: 20px;
+  color: #777;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.search-icon-link:hover {
+  color: #0a3d62;
+}
+
 .main-navbar {
-  background-color: #0a1735;
+  background-color: #0f2046;
   padding: 0;
 }
 
 .navigation-links {
-  width: 100%;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -91,7 +102,7 @@
   border-radius: 0;
   margin-top: 0;
   border: none;
-  background-color: #0a1735;
+  background-color: #0f2046;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
