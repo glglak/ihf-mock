@@ -57,28 +57,28 @@ class ApiService {
             id: 1,
             title: 'The World Games: 100 Days to Go until Chengdu 2025',
             date: 'April 29, 2025',
-            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/WorldGames100Days.jpg',
+            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/FARSTS330.png?itok=uyOF0P3D',
             summary: 'With 100 days to go until the World Games in Chengdu, preparations continue at an impressive pace.'
           },
           {
             id: 2,
             title: 'Twists and turns deliver four fantastic semi-finalists in the EHF Champions League',
             date: 'May 02, 2025',
-            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/ChampionsLeague.jpg',
+            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/Romero330.png?itok=xz8z1EpM',
             summary: 'The EHF Champions League semifinals are set after thrilling quarterfinal matches.'
           },
           {
             id: 3,
             title: 'Lieder announces retirement: "Those memories are worth more than any medal"',
             date: 'May 01, 2025',
-            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/LiederRetirement.jpg',
+            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/Flensb330.png?itok=3yWsY2Fg',
             summary: 'Legendary handball player Janna Lieder has announced her retirement from professional handball.'
           },
           {
             id: 4,
             title: 'Surprise, respect and achievement – Faroese handball celebrated by stamp set',
             date: 'May 01, 2025',
-            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/FaroeseStamps.jpg',
+            image: 'https://www.ihf.info/sites/default/files/styles/news_listing_265_150/public/2025-04/TWC330.png?itok=hRU2wupr',
             summary: 'The Faroe Islands have honored their handball heritage with a special commemorative stamp collection.'
           }
         ]);
