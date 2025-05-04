@@ -45,17 +45,12 @@ const Slider = ({ slides }) => {
     setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
   };
 
-  // Rather than using background-image style, we'll use an actual img tag with crossOrigin
   return (
-    <div className="hero-section">
+    <div className="hero-slider">
       {slides.map((slide, index) => (
         <div
           key={index}
           className={`slide-item ${index === currentSlide ? 'active' : ''}`}
-          style={{ 
-            opacity: index === currentSlide ? 1 : 0,
-            transition: 'opacity 0.5s ease-in-out'
-          }}
         >
           <img 
             src={slide.image} 
@@ -63,13 +58,14 @@ const Slider = ({ slides }) => {
             crossOrigin="anonymous"
             className="slide-background"
           />
-          <div className="slide-content">
-            <Container className="hero-content">
-              <h1 className="hero-title">{slide.title}</h1>
-              <p className="hero-subtitle">{slide.description}</p>
+          <div className="slide-overlay"></div>
+          <Container className="slide-content">
+            <div className="slide-text">
+              <h1 className="slide-title">{slide.title}</h1>
+              <p className="slide-description">{slide.description}</p>
               <Button variant="primary" className="read-more-btn">Read More</Button>
-            </Container>
-          </div>
+            </div>
+          </Container>
         </div>
       ))}
 
@@ -83,13 +79,13 @@ const Slider = ({ slides }) => {
         <span className="visually-hidden">Next</span>
       </button>
 
-      {/* Custom dots navigation */}
-      <div className="slide-dots">
+      {/* Slide indicators */}
+      <div className="slide-indicators">
         {slides.map((_, index) => (
           <button
             key={index}
             type="button"
-            className={`slide-dot ${index === currentSlide ? 'active' : ''}`}
+            className={`slide-indicator ${index === currentSlide ? 'active' : ''}`}
             onClick={() => goToSlide(index)}
             aria-label={`Slide ${index + 1}`}
           ></button>
